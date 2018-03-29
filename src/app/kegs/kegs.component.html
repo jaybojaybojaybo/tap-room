@@ -1,0 +1,34 @@
+<h2>The Kegs</h2>
+<ul class="kegs">
+  <li *ngFor="let keg of kegs" (click)="onSelect(keg)" [class.selected]="keg === selectedKeg">
+    <span class="badge">{{keg.id}}</span> {{keg.name}}
+    brand: {{keg.brand}}
+    price/keg: {{keg.price | currency : symbol : fractionSize}}
+    price/pint: {{keg.pintPrice | currency : symbol : fractionSize}}
+    ABV: {{keg.abv}}
+  </li>
+</ul>
+
+<div *ngIf="selectedKeg">
+
+  <h2>{{ selectedKeg.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{selectedKeg.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedKeg.name" placeholder="name">
+    </label>
+    <label>brand:
+      <input [(ngModel)]="selectedKeg.brand" placeholder="brand">
+    </label>
+    <label>Price:
+      <input [(ngModel)]="selectedKeg.price" placeholder="price">
+    </label>
+    <label>Pint Price:
+      <input [(ngModel)]="selectedKeg.pintPrice" placeholder="pintPrice">
+    </label>
+    <label>ABV:
+      <input [(ngModel)]="selectedKeg.abv" placeholder="abv">
+    </label>
+  </div>
+
+</div>
