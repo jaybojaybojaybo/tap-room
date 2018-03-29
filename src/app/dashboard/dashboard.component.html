@@ -1,3 +1,8 @@
-<p>
-  dashboard works!
-</p>
+<h3>Top Kegs</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let keg of kegs" class="col-1-4" routerLink="/detail/{{keg.id}}">
+    <div class="module keg">
+      <h4>{{keg.name}}</h4>
+    </div>
+  </a>
+</div>

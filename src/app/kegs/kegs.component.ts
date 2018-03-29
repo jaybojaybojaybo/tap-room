@@ -8,19 +8,12 @@ import { KegService } from '../keg.service';
   styleUrls: ['./kegs.component.css']
 })
 export class KegsComponent implements OnInit {
-
-  selectedKeg: Keg;
-
   kegs: Keg[];
 
   constructor(private kegService: KegService) { }
 
   ngOnInit() {
     this.getKegs();
-  }
-
-  onSelect(keg: Keg): void {
-    this.selectedKeg = keg;
   }
 
   getKegs(): void {

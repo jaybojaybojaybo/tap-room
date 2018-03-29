@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Keg } from '../keg'
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { Keg } from '../keg';
+import { KegService } from '../keg.service';
 
 @Component({
   selector: 'app-keg-detail',
@@ -9,9 +13,24 @@ import { Keg } from '../keg'
 export class KegDetailComponent implements OnInit {
   @Input() keg: Keg;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private kegService: KegService,
+    private location: Location
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getKeg();
+  }
+
+  getKeg(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.kegService.getKeg(id)
+      .subscribe(keg => this.keg = keg);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
