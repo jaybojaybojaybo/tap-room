@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { KegsComponent } from './kegs/kegs.component';
 import { KegDetailComponent } from './keg-detail/keg-detail.component';
+import { KegService } from './keg.service';
+import { MessagesComponent } from './messages/messages.component'
+import { MessageService } from './message.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -13,13 +17,18 @@ import { KegDetailComponent } from './keg-detail/keg-detail.component';
     AppComponent,
     DashboardComponent,
     KegsComponent,
-    KegDetailComponent
+    KegDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    KegService,
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

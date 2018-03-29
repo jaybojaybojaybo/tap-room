@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Keg } from '../keg';
-import { KEGS } from '../mock-kegs'
+import { KegService } from '../keg.service';
 
 @Component({
   selector: 'app-kegs',
@@ -9,17 +9,24 @@ import { KEGS } from '../mock-kegs'
 })
 export class KegsComponent implements OnInit {
 
-  kegs = KEGS;
-
   selectedKeg: Keg;
+
+  kegs: Keg[];
+
+  constructor(private kegService: KegService) { }
+
+  ngOnInit() {
+    this.getKegs();
+  }
 
   onSelect(keg: Keg): void {
     this.selectedKeg = keg;
   }
 
-  constructor() { }
-
-  ngOnInit() {
+  getKegs(): void {
+    this.kegService.getKegs()
+      .subscribe(kegs => this.kegs = kegs);
   }
+
 
 }

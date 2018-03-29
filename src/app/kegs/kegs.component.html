@@ -1,11 +1,9 @@
-<h2>The Kegs</h2>
+<h2>Hey Customer, these are The Kegs</h2>
 <ul class="kegs">
   <li *ngFor="let keg of kegs" (click)="onSelect(keg)" [class.selected]="keg === selectedKeg">
     <span class="badge">{{keg.id}}</span> {{keg.name}}<br>
     brand: {{keg.brand}}<br>
-    price/keg: {{keg.price | currency : symbol : fractionSize}}<br>
     price/pint: {{keg.pintPrice | currency : symbol : fractionSize}}<br>
-    pint count: {{keg.pints}}<br>
     ABV: {{keg.abv}}
   </li>
 </ul>
