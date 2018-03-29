@@ -5,5 +5,5 @@ export class Keg {
   price: number;
   pintPrice: number;
   abv: number;
-  pints: 124;
+  pints: number;
 }

@@ -1,0 +1,26 @@
+<div *ngIf="keg">
+
+  <h2>{{ keg.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{keg.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="keg.name" placeholder="name">
+    </label>
+    <label>brand:
+      <input [(ngModel)]="keg.brand" placeholder="brand">
+    </label>
+    <label>Price:
+      <input [(ngModel)]="keg.price" placeholder="price">
+    </label>
+    <label>Pint Price:
+      <input [(ngModel)]="keg.pintPrice" placeholder="pintPrice">
+    </label>
+    <label>Pints Qt:
+      <input [(ngModel)]="keg.pints" placeholder="pints">
+    </label>
+    <label>ABV:
+      <input [(ngModel)]="keg.abv" placeholder="abv">
+    </label>
+  </div>
+
+</div>

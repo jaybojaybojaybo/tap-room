@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { KegsComponent } from './kegs/kegs.component';
+import { KegDetailComponent } from './keg-detail/keg-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    KegsComponent
+    KegsComponent,
+    KegDetailComponent
   ],
   imports: [
     BrowserModule,
