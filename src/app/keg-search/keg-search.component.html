@@ -1,0 +1,13 @@
+<div id="search-component">
+  <h4>Keg Search</h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let keg of kegs$ | async" >
+      <a routerLink="/detail/{{keg.id}}">
+        {{keg.name}}
+      </a>
+    </li>
+  </ul>
+</div>

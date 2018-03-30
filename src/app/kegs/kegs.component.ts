@@ -21,5 +21,17 @@ export class KegsComponent implements OnInit {
       .subscribe(kegs => this.kegs = kegs);
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) {return;}
+    this.kegService.addKeg({ name } as Keg)
+      .subscribe(keg => {
+        this.kegs.push(keg);
+      });
+  }
 
+  delete(keg: Keg): void {
+    this.kegs = this.kegs.filter(h => h !== keg);
+    this.kegService.deleteKeg(keg).subscribe();
+  }
 }

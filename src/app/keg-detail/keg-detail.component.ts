@@ -33,4 +33,9 @@ export class KegDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void {
+    this.kegService.updateKeg(this.keg)
+      .subscribe(() => this.goBack());
+  }
+
 }
